@@ -4,8 +4,8 @@
 
 # Ink-Canvas-Plus
 [下载](https://www.khyan.top/apps/Ink-Canvas-Plus/installer "从 khyan.top 下载")
-  
-![GitHub issues](https://img.shields.io/github/issues/clover-yan/Ink-Canvas-Plus?logo=github)
+
+![QQ 群 996760298](https://img.shields.io/badge/QQ%20群-996760298-blue) ![GitHub issues](https://img.shields.io/github/issues/clover-yan/Ink-Canvas-Plus?logo=github)
 
 Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canvas 的 Windows 画板应用，旨在优化各方面的使用体验，并尽可能保留原版 Ink Canvas 的操作体验。
 </div>
@@ -31,11 +31,11 @@ Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canva
 ### 我该在何处提出功能需求和错误报告？
 
 1. GitHub Issues
-  功能请求：https://github.com/clover-yan/Ink-Canvas-Plus/labels/enhancement/new
-  错误报告：https://github.com/clover-yan/Ink-Canvas-Plus/labels/bug/new
-
-1. 联系作者
-    [查看联系方式](https://www.khyan.top/contact "联系作者")。请附上复现此问题的操作步骤，等待回复。
+   功能请求：https://github.com/clover-yan/Ink-Canvas-Plus/labels/enhancement/new
+   错误报告：https://github.com/clover-yan/Ink-Canvas-Plus/labels/bug/new
+2. 加入 QQ 群组：996760298
+3. 联系作者
+   [查看联系方式](https://www.khyan.top/contact "联系作者")。请附上复现此问题的操作步骤，等待回复。
 
 
 ## 感谢
