@@ -5,7 +5,7 @@
 # Ink-Canvas-Plus
 [下载](https://www.khyan.top/apps/Ink-Canvas-Plus/installer "从 khyan.top 下载")
 
-![QQ 群 996760298](https://img.shields.io/badge/QQ%20群-996760298-blue) ![GitHub issues](https://img.shields.io/github/issues/clover-yan/Ink-Canvas-Plus?logo=github)
+[![QQ 群 996760298](https://img.shields.io/badge/QQ%20群-996760298-blue)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=KBN8I8M6E24RFoeFw7FNlXdGpOQybxTW&authKey=CNheMzaibvP5cGRwSGP9HTLiTQtpFfPwySrJ0%2BpoCYYF22JqhINFi3Mi8lNLuXCV&noverify=0&group_code=996760298) ![GitHub issues](https://img.shields.io/github/issues/clover-yan/Ink-Canvas-Plus?logo=github)
 
 Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canvas 的 Windows 画板应用，旨在优化各方面的使用体验，并尽可能保留原版 Ink Canvas 的操作体验。
 </div>
@@ -30,8 +30,8 @@ Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canva
 
 ### 我该在何处提出功能需求和错误报告？
 
-1. GitHub Issues
-   功能请求：https://github.com/clover-yan/Ink-Canvas-Plus/labels/enhancement/new
+1. GitHub Issues  
+   功能请求：https://github.com/clover-yan/Ink-Canvas-Plus/labels/enhancement/new  
    错误报告：https://github.com/clover-yan/Ink-Canvas-Plus/labels/bug/new
 2. 加入 QQ 群组：996760298
 3. 联系作者
