@@ -33,8 +33,8 @@ Ink Canvas Plus (IC+) 是一款由 Clover Yan 维护、复刻自 WXRIW/Ink Canva
 1. GitHub Issues  
    功能请求：https://github.com/clover-yan/Ink-Canvas-Plus/labels/enhancement/new  
    错误报告：https://github.com/clover-yan/Ink-Canvas-Plus/labels/bug/new
-2. 加入 QQ 群组：996760298
-3. 联系作者
+2. [加入 QQ 群组](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=KBN8I8M6E24RFoeFw7FNlXdGpOQybxTW&authKey=CNheMzaibvP5cGRwSGP9HTLiTQtpFfPwySrJ0%2BpoCYYF22JqhINFi3Mi8lNLuXCV&noverify=0&group_code=996760298)：996760298
+3. 联系作者  
    [查看联系方式](https://www.khyan.top/contact "联系作者")。请附上复现此问题的操作步骤，等待回复。
 
 
