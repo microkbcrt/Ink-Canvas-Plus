@@ -1938,8 +1938,8 @@ namespace InkCanvasPlus
 
         private void MainWindow_TouchDown(object sender, TouchEventArgs e)
         {
-            double boundWidth = e.GetTouchPoint(null).Bounds.Width;
-            if (boundWidth > 20)
+            double boundWidth = GetTouchBoundWidth(e);
+            if (boundWidth > BoundsWidth)
             {
                 inkCanvas.EraserShape = new EllipseStylusShape(boundWidth, boundWidth);
                 TouchDownPointsList[e.TouchDevice.Id] = InkCanvasEditingMode.EraseByPoint;
