@@ -2677,7 +2677,10 @@ namespace InkCanvasPlus
                 })).Start();
             });
 
-            UpdateWindowTitle();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                UpdateWindowTitle();
+            });
             //previousSlideID = Wn.View.CurrentShowPosition;
             ////检查是否有已有墨迹，并加载当前页
             //if (Settings.Automation.IsAutoSaveStrokesInPowerPoint)
