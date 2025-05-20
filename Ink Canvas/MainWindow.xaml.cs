@@ -2837,7 +2837,10 @@ namespace InkCanvasPlus
                 }
             });
 
-            UpdateWindowTitle();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                UpdateWindowTitle();
+            });
         }
 
         int previousSlideID = 0;
