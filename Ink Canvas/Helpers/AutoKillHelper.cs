@@ -45,7 +45,7 @@ namespace InkCanvasPlus.Helpers
                 {
                     GetWindowRect(hWnd, out RECT rect);
                     int height = rect.Bottom - rect.Top;
-                    if (height <= 200 && rect.Left <= -175)
+                    if (rect.Left <= -175 && (double)height / (double)rect.Left < -1)
                     {
                         GetWindowThreadProcessId(hWnd, out uint processId);
                         Process process = Process.GetProcessById((int)processId);
