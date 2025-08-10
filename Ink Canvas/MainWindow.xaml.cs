@@ -6197,8 +6197,54 @@ namespace InkCanvasPlus
                                     newStrokes = new StrokeCollection();
                                 }
                             }
+                            else
+                            {
+                                // 检查是否是直线
+                                Stroke strokeToBeChecked = e.Stroke;
+                                var points = strokeToBeChecked.StylusPoints.Select(p => p.ToPoint()).ToList();
+                                if (points.Count >= 10)
+                                {
+                                    // 最小二乘法
+                                    double sumX = 0, sumY = 0, sumXY = 0, sumXX = 0, sumYY = 0, minX = double.PositiveInfinity, minY = double.PositiveInfinity, maxX = double.NegativeInfinity, maxY = double.NegativeInfinity;
+                                    int n = points.Count - 8;
+                                    for (int i = 0; i < n + 8; i++)
+                                    {
+                                        minX = Math.Min(minX, points[i].X);
+                                        minY = Math.Min(minY, points[i].Y);
+                                        maxX = Math.Max(maxX, points[i].X);
+                                        maxY = Math.Max(maxY, points[i].Y);
+                                        if (i < 4 || i > n + 3) continue;
+                                        sumX += points[i].X;
+                                        sumY += points[i].Y;
+                                        sumXY += points[i].X * points[i].Y;
+                                        sumXX += points[i].X * points[i].X;
+                                        sumYY += points[i].Y * points[i].Y;
+                                    }
+                                    double a = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+                                    double b = (sumY - a * sumX) / n;
+                                    double r = (n * sumXY - sumX * sumY) / Math.Sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY));
+                                    if (Math.Abs(r) > 0.9)
+                                    {
+                                        var pointList = r > 0 ? new List<Point> { new Point(minX, minY), new Point(maxX, maxY) } : new List<Point> { new Point(maxX, minY), new Point(minX, maxY) };
+                                        var point = new StylusPointCollection(pointList);
+                                        var stroke = new Stroke(point)
+                                        {
+                                            DrawingAttributes = inkCanvas.DefaultDrawingAttributes.Clone()
+                                        };
+                                        SetNewBackupOfStroke();
+                                        _currentCommitType = CommitReason.ShapeRecognition;
+                                        inkCanvas.Strokes.Remove(strokeToBeChecked);
+                                        inkCanvas.Strokes.Add(stroke);
+                                        _currentCommitType = CommitReason.UserInput;
+                                        GridInkCanvasSelectionCover.Visibility = Visibility.Collapsed;
+                                        newStrokes = new StrokeCollection();
+                                    }
+                                }
+                            }
                         }
-                        catch { }
+                        catch (Exception ex) {
+                            LogHelper.WriteLogToFile($"{ex.Message}");
+                        }
                     }
                     InkToShapeProcess();
                 }
