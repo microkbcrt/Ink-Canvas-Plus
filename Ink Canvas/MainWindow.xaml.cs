@@ -1818,6 +1818,7 @@ namespace InkCanvasPlus
                 ViewboxBtnColorRedContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 ViewboxBtnColorYellowContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 ViewboxBtnColorWhiteContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
+                ViewboxBtnColorPurpleContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 switch (inkColor)
                 {
                     case 0:
@@ -1837,6 +1838,9 @@ namespace InkCanvasPlus
                         break;
                     case 5:
                         ViewboxBtnColorWhiteContent.BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOn)));
+                        break;
+                    case 6:
+                        ViewboxBtnColorPurpleContent.BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOn)));
                         break;
                 }
             }
@@ -5867,6 +5871,7 @@ namespace InkCanvasPlus
                     BtnColorGreen.Background = new SolidColorBrush(StringToColor("#FF1ED760"));
                     BtnColorBlue.Background = new SolidColorBrush(StringToColor("#FF239AD6"));
                     BtnColorYellow.Background = new SolidColorBrush(StringToColor("#FFFFC000"));
+                    BtnColorPurple.Background = new SolidColorBrush(StringToColor("#FFBF40BF")); 
                 }
             }
             else
@@ -5889,6 +5894,7 @@ namespace InkCanvasPlus
                     BtnColorGreen.Background = new SolidColorBrush(StringToColor("#FF169141"));
                     BtnColorBlue.Background = new SolidColorBrush(StringToColor("#FF239AD6"));
                     BtnColorYellow.Background = new SolidColorBrush(StringToColor("#FFF38B00"));
+                    BtnColorPurple.Background = new SolidColorBrush(Colors.Purple);
                 }
             }
         }
