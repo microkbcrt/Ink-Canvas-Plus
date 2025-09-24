@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Input.StylusPlugIns;
@@ -42,6 +43,7 @@ namespace InkCanvasPlus
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Color _currentCustomColor = Colors.Black;
         #region Window Initialization
 
         public MainWindow()
@@ -1565,6 +1567,13 @@ namespace InkCanvasPlus
                 {
                     BtnColorPurple_Click(null, null);
                 }
+                else if (inkColor == 7)
+                {
+                    // 直接应用存储的自定义颜色，而不是打开对话框
+                    inkCanvas.DefaultDrawingAttributes.Color = _currentCustomColor;
+                    BtnColorCustom.Background = new SolidColorBrush(_currentCustomColor);
+                    ColorSwitchCheck(); // 更新“打勾”
+                }
         }
 
         int BoundsWidth = 5;
@@ -1819,6 +1828,7 @@ namespace InkCanvasPlus
                 ViewboxBtnColorYellowContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 ViewboxBtnColorWhiteContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 ViewboxBtnColorPurpleContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
+                ViewboxBtnColorCustomContent.BeginAnimation(OpacityProperty, new DoubleAnimation(0, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOff)));
                 switch (inkColor)
                 {
                     case 0:
@@ -1841,6 +1851,9 @@ namespace InkCanvasPlus
                         break;
                     case 6:
                         ViewboxBtnColorPurpleContent.BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOn)));
+                        break;
+                    case 7:
+                        ViewboxBtnColorCustomContent.BeginAnimation(OpacityProperty, new DoubleAnimation(1, TimeSpan.FromMilliseconds(ColorSwiftOpacityDurationOn)));
                         break;
                 }
             }
@@ -1895,6 +1908,42 @@ namespace InkCanvasPlus
             forceEraser = false;
             inkCanvas.DefaultDrawingAttributes.Color = ((SolidColorBrush)BtnColorPurple.Background).Color;
             ColorSwitchCheck();
+        }
+
+        // ======== 全新的自定义颜色方法 ========
+        private void BtnColorCustom_Click(object sender, RoutedEventArgs e)
+        {
+            // 使用 System.Windows.Forms 中的颜色选择对话框，功能更全
+            var colorDialog = new System.Windows.Forms.ColorDialog
+            {
+                // 允许用户创建自定义颜色
+                FullOpen = true 
+            };
+        
+            // 显示对话框，并检查用户是否点击了“确定”
+            if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // 从 WinForms Color 转换为 WPF Color
+                var selectedWpfColor = Color.FromArgb(
+                    colorDialog.Color.A, 
+                    colorDialog.Color.R, 
+                    colorDialog.Color.G, 
+                    colorDialog.Color.B);
+        
+                // 1. 将选择的颜色存储到我们的变量中
+                _currentCustomColor = selectedWpfColor;
+        
+                // 2. 将彩虹按钮的背景更新为用户选择的颜色
+                BtnColorCustom.Background = new SolidColorBrush(_currentCustomColor);
+        
+                // 3. 将画笔颜色设置为新颜色
+                inkCanvas.DefaultDrawingAttributes.Color = _currentCustomColor;
+        
+                // 4. 设置新的颜色索引号（比如 7），并更新“打勾”状态
+                inkColor = 7;
+                forceEraser = false;
+                ColorSwitchCheck();
+            }
         }
 
         private Color StringToColor(string colorStr)
@@ -6962,6 +7011,12 @@ namespace InkCanvasPlus
         private void BorderPenColorPurple_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BtnColorPurple_Click(BtnColorPurple, null);
+            HideSubPanels();
+        }
+
+        private void BorderPenColorCustom_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            BtnColorCustom_Click(BtnColorCustom, null);
             HideSubPanels();
         }
 
