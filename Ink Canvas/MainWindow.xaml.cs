@@ -297,7 +297,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void Main_Grid_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Main_Grid_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (StackPanelPPTControls.Visibility != Visibility.Visible || currentMode != 0) return;
 
@@ -311,7 +311,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
@@ -5574,7 +5574,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void inkCanvas_MouseMove(object sender, MouseEventArgs e)
+        private void inkCanvas_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (isMouseDown)
             {
@@ -7360,7 +7360,7 @@ namespace InkCanvasPlus
         Point pos = new Point();
         Point downPos = new Point();
 
-        void Element_MouseMove(object sender, MouseEventArgs e)
+        void Element_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (isDragDropInEffect)
             {
@@ -7393,7 +7393,7 @@ namespace InkCanvasPlus
         }
 
 
-        void SymbolIconEmoji_MouseMove(object sender, MouseEventArgs e)
+        void SymbolIconEmoji_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (isDragDropInEffect)
             {
