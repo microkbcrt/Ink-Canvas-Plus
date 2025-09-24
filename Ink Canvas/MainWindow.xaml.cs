@@ -1561,6 +1561,10 @@ namespace InkCanvasPlus
                 {
                     BorderPenColorWhite_MouseUp(null, null);
                 }
+                else if (inkColor == 6)
+                {
+                    BtnColorPurple_Click(null, null);
+                }
         }
 
         int BoundsWidth = 5;
@@ -1878,6 +1882,14 @@ namespace InkCanvasPlus
             inkColor = 4;
             forceEraser = false;
             inkCanvas.DefaultDrawingAttributes.Color = ((SolidColorBrush)BtnColorYellow.Background).Color;
+            ColorSwitchCheck();
+        }
+
+        private void BtnColorPurple_Click(object sender, RoutedEventArgs e)
+        {
+            inkColor = 6; // 为新颜色分配一个新的索引号
+            forceEraser = false;
+            inkCanvas.DefaultDrawingAttributes.Color = ((SolidColorBrush)BtnColorPurple.Background).Color;
             ColorSwitchCheck();
         }
 
@@ -6938,6 +6950,12 @@ namespace InkCanvasPlus
         private void BorderPenColorYellow_MouseUp(object sender, MouseButtonEventArgs e)
         {
             BtnColorYellow_Click(BtnColorYellow, null);
+            HideSubPanels();
+        }
+
+        private void BorderPenColorPurple_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            BtnColorPurple_Click(BtnColorPurple, null);
             HideSubPanels();
         }
 
