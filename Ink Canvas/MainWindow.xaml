@@ -882,7 +882,6 @@
                                 <ui:SymbolIcon Symbol="Accept" Foreground="{Binding ElementName=SymbolIconBtnColorBlackContent, Path=Foreground}" />
                             </Viewbox>
                         </Button>
-                        <!-- 这是你新添加的紫色按钮 -->
                         <Button Name="BtnColorPurple" FontFamily="Microsoft YaHei UI" Background="Purple"
                                 Margin="0,10,0,0" Width="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
                                 Height="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
@@ -1165,6 +1164,12 @@
                                         <ui:SymbolIcon Symbol="Accept" Foreground="White" />
                                     </Viewbox>
                                 </Border>
+                                <Border Name="BorderPenColorPurple" Background="{Binding ElementName=BtnColorPurple, Path=Background}" MouseUp="BorderPenColorPurple_MouseUp" CornerRadius="100"
+                                        Width="{Binding ElementName=BorderPenColorYellow, Path=ActualHeight}">
+                                    <Viewbox Opacity="{Binding ElementName=ViewboxBtnColorPurpleContent, Path=Opacity}" Margin="6">
+                                        <ui:SymbolIcon Symbol="Accept" Foreground="White" />
+                                    </Viewbox>
+                                </Border>
                                 <Border Name="BorderPenColorWhite" Background="White" CornerRadius="100" MouseUp="BorderPenColorWhite_MouseUp"
                                         Width="{Binding ElementName=BorderPenColorYellow, Path=ActualHeight}">
                                     <Viewbox Name="ViewboxBtnColorWhiteContent" Opacity="0" Margin="6">
@@ -1442,3 +1447,4 @@
     </Grid>
 
 </Window>
+
