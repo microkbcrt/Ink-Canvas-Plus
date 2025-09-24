@@ -890,6 +890,26 @@
                                 <ui:SymbolIcon Symbol="Accept" Foreground="{Binding ElementName=SymbolIconBtnColorBlackContent, Path=Foreground}" />
                             </Viewbox>
                         </Button>
+                        <!-- ======== 自定义颜色按钮 ======== -->
+                        <Button Name="BtnColorCustom" FontFamily="Microsoft YaHei UI"
+                                Margin="0,10,0,0" Width="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
+                                Height="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
+                                Click="BtnColorCustom_Click" Foreground="{Binding ElementName=BtnExit, Path=Foreground}">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="Red" Offset="0.0" />
+                                    <GradientStop Color="Orange" Offset="0.17" />
+                                    <GradientStop Color="Yellow" Offset="0.34" />
+                                    <GradientStop Color="Green" Offset="0.51" />
+                                    <GradientStop Color="Blue" Offset="0.68" />
+                                    <GradientStop Color="Indigo" Offset="0.85" />
+                                    <GradientStop Color="Violet" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Viewbox Name="ViewboxBtnColorCustomContent" Opacity="0">
+                                <ui:SymbolIcon Symbol="Accept" Foreground="{Binding ElementName=SymbolIconBtnColorBlackContent, Path=Foreground}" />
+                            </Viewbox>
+                        </Button>
                     </StackPanel>
                     <Button Name="BtnClear" Content="清屏" FontFamily="Microsoft YaHei UI"
                             Margin="0,10,0,0" Width="{Binding ElementName=StackPanelMain, Path=ActualWidth}"
@@ -1176,6 +1196,13 @@
                                         <ui:SymbolIcon Symbol="Accept" Foreground="Black" />
                                     </Viewbox>
                                 </Border>
+                                <!-- ======== 自定义颜色 Border ======== -->
+                                <Border Name="BorderPenColorCustom" Background="{Binding ElementName=BtnColorCustom, Path=Background}" MouseUp="BorderPenColorCustom_MouseUp" CornerRadius="100"
+                                        Width="{Binding ElementName=BorderPenColorYellow, Path=ActualHeight}">
+                                    <Viewbox Opacity="{Binding ElementName=ViewboxBtnColorCustomContent, Path=Opacity}" Margin="6">
+                                        <ui:SymbolIcon Symbol="Accept" Foreground="White" />
+                                    </Viewbox>
+                                </Border>
                             </ui:SimpleStackPanel>
                             <Grid x:Name="EraserContainer" Width="21" Height="24" Margin="0,1.5,-2,0" MouseDown="Border_MouseDown" MouseUp="ImageEraser_MouseUp" Visibility="{Binding ElementName=BtnErase, Path=Visibility}">
                                 <Image Name="ImageEraser" Margin="0,-4,-1,-2" Source="{DynamicResource ImageSource.RubberNormal}" RenderTransformOrigin="0.5,0.5" />
@@ -1447,4 +1474,5 @@
     </Grid>
 
 </Window>
+
 
