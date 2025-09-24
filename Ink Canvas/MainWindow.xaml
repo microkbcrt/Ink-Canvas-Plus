@@ -882,6 +882,15 @@
                                 <ui:SymbolIcon Symbol="Accept" Foreground="{Binding ElementName=SymbolIconBtnColorBlackContent, Path=Foreground}" />
                             </Viewbox>
                         </Button>
+                        <!-- 这是你新添加的紫色按钮 -->
+                        <Button Name="BtnColorPurple" FontFamily="Microsoft YaHei UI" Background="Purple"
+                                Margin="0,10,0,0" Width="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
+                                Height="{Binding ElementName=StackPanelColors, Path=ActualWidth}"
+                                Click="BtnColorPurple_Click" Foreground="{Binding ElementName=BtnExit, Path=Foreground}">
+                            <Viewbox Name="ViewboxBtnColorPurpleContent" Opacity="0">
+                                <ui:SymbolIcon Symbol="Accept" Foreground="{Binding ElementName=SymbolIconBtnColorBlackContent, Path=Foreground}" />
+                            </Viewbox>
+                        </Button>
                     </StackPanel>
                     <Button Name="BtnClear" Content="清屏" FontFamily="Microsoft YaHei UI"
                             Margin="0,10,0,0" Width="{Binding ElementName=StackPanelMain, Path=ActualWidth}"
@@ -1431,4 +1440,5 @@
               MouseMove="SymbolIconEmoji_MouseMove" MouseUp="SymbolIconEmoji_MouseUp" />
         <InkCanvas Name="InkCanvasForInkReplay" MouseDown="InkCanvasForInkReplay_MouseDown" Visibility="Collapsed" EditingMode="None" Background="Transparent" />
     </Grid>
+
 </Window>
