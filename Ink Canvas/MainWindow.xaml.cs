@@ -21,7 +21,6 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Input.StylusPlugIns;
@@ -31,6 +30,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
 using File = System.IO.File;
+using Forms = System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
 using Point = System.Windows.Point;
@@ -297,7 +297,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void Main_Grid_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Main_Grid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (StackPanelPPTControls.Visibility != Visibility.Visible || currentMode != 0) return;
 
@@ -311,7 +311,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
@@ -1914,14 +1914,14 @@ namespace InkCanvasPlus
         private void BtnColorCustom_Click(object sender, RoutedEventArgs e)
         {
             // 使用 System.Windows.Forms 中的颜色选择对话框，功能更全
-            var colorDialog = new System.Windows.Forms.ColorDialog
+            var colorDialog = new Forms.ColorDialog
             {
                 // 允许用户创建自定义颜色
                 FullOpen = true 
             };
         
             // 显示对话框，并检查用户是否点击了“确定”
-            if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (colorDialog.ShowDialog() == Forms.DialogResult.OK)
             {
                 // 从 WinForms Color 转换为 WPF Color
                 var selectedWpfColor = Color.FromArgb(
@@ -5574,7 +5574,7 @@ namespace InkCanvasPlus
             }
         }
 
-        private void inkCanvas_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        private void inkCanvas_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
             {
@@ -7360,7 +7360,7 @@ namespace InkCanvasPlus
         Point pos = new Point();
         Point downPos = new Point();
 
-        void Element_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        void Element_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragDropInEffect)
             {
@@ -7393,7 +7393,7 @@ namespace InkCanvasPlus
         }
 
 
-        void SymbolIconEmoji_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        void SymbolIconEmoji_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragDropInEffect)
             {
